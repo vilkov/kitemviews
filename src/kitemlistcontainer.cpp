@@ -74,7 +74,7 @@ KItemListContainer::KItemListContainer(KItemListController* controller, QWidget*
     m_verticalSmoothScroller(0)
 {
     Q_ASSERT(controller);
-    controller->setParent(this);
+//    controller->setParent(this);
 
     QGraphicsView* graphicsView = new KItemListContainerViewport(new QGraphicsScene(this), this);
     setViewport(graphicsView);
@@ -99,7 +99,8 @@ KItemListContainer::~KItemListContainer()
 {
     // Don't rely on the QObject-order to delete the controller, otherwise
     // the QGraphicsScene might get deleted before the view.
-    delete m_controller;
+/*XXX: KItemListController::setView(NULL) should be called before this destructor */
+//    delete m_controller;
     m_controller = 0;
 }
 

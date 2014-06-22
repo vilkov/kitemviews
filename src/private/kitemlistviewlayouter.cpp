@@ -355,6 +355,12 @@ void KItemListViewLayouter::markAsDirty()
 
 void KItemListViewLayouter::doLayout()
 {
+    if (!m_model)
+    {
+        m_dirty = false;
+        return;
+    }
+
     if (m_dirty) {
 #ifdef KITEMLISTVIEWLAYOUTER_DEBUG
         QElapsedTimer timer;

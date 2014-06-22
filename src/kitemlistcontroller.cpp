@@ -91,9 +91,9 @@ void KItemListController::setModel(KItemModelBase* model)
     }
 
     KItemModelBase* oldModel = m_model;
-    if (oldModel) {
-        oldModel->deleteLater();
-    }
+//    if (oldModel) {
+//        oldModel->deleteLater();
+//    }
 
     m_model = model;
     if (m_model) {
@@ -128,13 +128,13 @@ void KItemListController::setView(KItemListView* view)
     KItemListView* oldView = m_view;
     if (oldView) {
         disconnect(oldView, SIGNAL(scrollOffsetChanged(qreal,qreal)), this, SLOT(slotViewScrollOffsetChanged(qreal,qreal)));
-        oldView->deleteLater();
+//        oldView->deleteLater();
     }
 
     m_view = view;
 
     if (m_view) {
-        m_view->setParent(this);
+//        m_view->setParent(this);
         m_view->setController(this);
         m_view->setModel(m_model);
         connect(m_view, SIGNAL(scrollOffsetChanged(qreal,qreal)), this, SLOT(slotViewScrollOffsetChanged(qreal,qreal)));
@@ -214,6 +214,9 @@ bool KItemListController::hideEvent(QHideEvent* event)
 
 bool KItemListController::keyPressEvent(QKeyEvent* event)
 {
+    if (!m_model)
+        return true;
+
     int index = m_selectionManager->currentItem();
     int key = event->key();
 
