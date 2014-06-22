@@ -16,6 +16,7 @@ add_definitions (${QT_DEFINITIONS})# -DQT_NO_CAST_FROM_ASCII)
 find_package (KDE4 REQUIRED)
 include_directories (${KDE4_INCLUDE_DIR})
 add_definitions (${KDE4_DEFINITIONS})
+list (APPEND ${PROJECT_NAME}_LIBS ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
 
 # Sources
 include_directories (${CMAKE_CURRENT_SOURCE_DIR}/src

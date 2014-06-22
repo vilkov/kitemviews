@@ -94,3 +94,5 @@ void KItemListKeyboardSearchManager::slotCurrentChanged(int current, int previou
         cancelSearch();
     }
 }
+
+#include <kitemlistkeyboardsearchmanager.moc>

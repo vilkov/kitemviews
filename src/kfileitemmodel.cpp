@@ -105,7 +105,7 @@ KFileItemModel::KFileItemModel(QObject* parent) :
     m_resortAllItemsTimer->setSingleShot(true);
     connect(m_resortAllItemsTimer, SIGNAL(timeout()), this, SLOT(resortAllItems()));
 
-    connect(KGlobalSettings::self(), SIGNAL(naturalSortingChanged()), this, SLOT(slotNaturalSortingChanged()));
+//    connect(KGlobalSettings::self(), SIGNAL(naturalSortingChanged()), this, SLOT(slotNaturalSortingChanged()));
 }
 
 KFileItemModel::~KFileItemModel()
